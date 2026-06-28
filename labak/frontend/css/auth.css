@@ -1,0 +1,116 @@
+/* ===================================================
+   صفحات التوثيق (دخول / تسجيل / حساب)
+=================================================== */
+
+.auth-wrap {
+  min-height: calc(100vh - 78px - 280px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--grad-card);
+  border: 1.5px solid var(--line-bright);
+  border-radius: var(--radius-lg);
+  padding: 44px 38px;
+  position: relative;
+  overflow: hidden;
+}
+.auth-card::before {
+  content: '';
+  position: absolute; top: -60px; left: -60px;
+  width: 180px; height: 180px;
+  background: var(--grad-hero);
+  filter: blur(60px);
+  opacity: 0.4;
+}
+.auth-card > * { position: relative; }
+
+.auth-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: var(--grad-cta);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  margin-bottom: 22px;
+  transform: rotate(-6deg);
+}
+.auth-card h1 { font-size: 26px; margin-bottom: 8px; }
+.auth-card .sub { color: var(--ink-dim); font-size: 14px; margin-bottom: 30px; }
+
+.auth-footer-link { text-align: center; margin-top: 22px; font-size: 14px; color: var(--ink-dim); }
+.auth-footer-link a { color: var(--cyan); font-weight: 700; }
+
+.auth-error-box {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  margin-bottom: 20px;
+  display: none;
+}
+.auth-error-box.show { display: block; }
+
+.password-strength {
+  display: flex; gap: 5px; margin-top: 8px;
+}
+.password-strength div {
+  height: 4px; flex: 1; border-radius: 2px;
+  background: var(--line);
+  transition: background .3s;
+}
+
+/* ---------- Account page ---------- */
+.account-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 36px;
+  padding: 50px 0 100px;
+}
+.account-sidebar {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  height: fit-content;
+}
+.account-sidebar .avatar-lg {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--grad-cta);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 800;
+  margin-bottom: 14px;
+}
+.account-nav a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--ink-dim);
+}
+.account-nav a:hover, .account-nav a.active { background: var(--bg-surface-2); color: var(--ink); }
+.account-nav a.danger { color: #f87171; margin-top: 16px; }
+
+.order-row {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.order-row-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+.order-row-head .order-num { font-family: var(--font-mono); font-weight: 700; }
+.order-items-mini { font-size: 13px; color: var(--ink-dim); }
+.order-status-badge { padding: 5px 14px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 700; }
+
+@media (max-width: 800px) {
+  .account-layout { grid-template-columns: 1fr; }
+}

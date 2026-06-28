@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة المنتجات — لابك عندنا</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-admin-page="products" data-page-title="إدارة المنتجات">
+
+<div class="admin-shell">
+  <div id="admin-sidebar-root"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="admin-mobile-toggle btn btn-secondary btn-sm" id="admin-mobile-toggle">☰</button>
+        <h1 id="admin-topbar-title"></h1>
+      </div>
+      <button class="btn btn-primary" id="open-create-product-btn">+ منتج جديد</button>
+    </div>
+
+    <div class="admin-content">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>كل المنتجات</h3>
+          <div style="display:flex;gap:10px">
+            <input type="text" id="product-search" placeholder="بحث..." style="background:var(--bg-surface-2);border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--ink);font-size:13.5px;width:220px">
+            <button class="btn btn-secondary btn-sm" id="manage-categories-btn">إدارة الفئات</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>المنتج</th><th>البراند</th><th>السعر</th><th>المخزون</th><th>الحالة</th><th>تحكم</th>
+              </tr>
+            </thead>
+            <tbody id="products-table-body">
+              <tr><td colspan="6" class="empty-mini">جاري التحميل...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ===== Modal: إنشاء/تعديل منتج ===== -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="product-modal-title">منتج جديد</h3>
+      <button class="modal-close-btn" data-close-modal="product-modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="product-form">
+        <input type="hidden" id="product-id">
+        <div class="field-row">
+          <div class="field"><label>اسم المنتج</label><input type="text" id="p-name" required></div>
+          <div class="field"><label>البراند</label><input type="text" id="p-brand" required></div>
+        </div>
+        <div class="field"><label>الفئة</label><select id="p-category"></select></div>
+        <div class="field"><label>الوصف</label><textarea id="p-description" rows="2"></textarea></div>
+
+        <div class="field-row">
+          <div class="field"><label>المعالج CPU</label><input type="text" id="p-cpu"></div>
+          <div class="field"><label>كرت الشاشة GPU</label><input type="text" id="p-gpu"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>الرام RAM</label><input type="text" id="p-ram"></div>
+          <div class="field"><label>التخزين</label><input type="text" id="p-storage"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>الشاشة</label><input type="text" id="p-screen"></div>
+          <div class="field"><label>البطارية</label><input type="text" id="p-battery"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>الوزن</label><input type="text" id="p-weight"></div>
+          <div class="field"><label>نظام التشغيل</label><input type="text" id="p-os"></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field"><label>السعر الأساسي (ج.م)</label><input type="number" id="p-price" required min="1"></div>
+          <div class="field"><label>سعر الخصم (اختياري)</label><input type="number" id="p-discount" min="1"></div>
+        </div>
+        <div class="field"><label>الكمية المتوفرة</label><input type="number" id="p-stock" required min="0"></div>
+
+        <div style="display:flex;gap:20px;margin-top:6px">
+          <label class="checkbox-field"><input type="checkbox" id="p-featured"> منتج مميز</label>
+          <label class="checkbox-field"><input type="checkbox" id="p-active" checked> منشور</label>
+        </div>
+
+        <div class="field" style="margin-top:18px">
+          <label>صورة المنتج</label>
+          <input type="file" id="p-image" accept="image/jpeg,image/png,image/webp">
+          <div id="p-image-preview" style="margin-top:10px"></div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" data-close-modal="product-modal">إلغاء</button>
+      <button class="btn btn-primary" id="save-product-btn">حفظ المنتج</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Modal: الفئات ===== -->
+<div class="modal-overlay" id="category-modal">
+  <div class="modal-box" style="max-width:420px">
+    <div class="modal-header">
+      <h3>إدارة الفئات</h3>
+      <button class="modal-close-btn" data-close-modal="category-modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="category-list" style="margin-bottom:20px"></div>
+      <div class="field" style="display:flex;gap:10px;align-items:flex-end;margin:0">
+        <div style="flex:1"><label>اسم فئة جديدة</label><input type="text" id="new-category-name"></div>
+        <button class="btn btn-primary btn-sm" id="add-category-btn">إضافة</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Modal: تأكيد حذف ===== -->
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal-box" style="max-width:400px">
+    <div class="modal-header"><h3>تأكيد الحذف</h3><button class="modal-close-btn" data-close-modal="delete-modal">✕</button></div>
+    <div class="modal-body"><p>هل أنت متأكد من حذف هذا المنتج؟ لن يظهر في المتجر بعد الآن.</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" data-close-modal="delete-modal">إلغاء</button>
+      <button class="btn btn-danger" id="confirm-delete-btn">حذف المنتج</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="js/admin-shell.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>

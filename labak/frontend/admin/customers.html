@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>العملاء — لابك عندنا</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-admin-page="customers" data-page-title="إدارة العملاء">
+
+<div class="admin-shell">
+  <div id="admin-sidebar-root"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="admin-mobile-toggle btn btn-secondary btn-sm" id="admin-mobile-toggle">☰</button>
+        <h1 id="admin-topbar-title"></h1>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div class="panel">
+        <div class="panel-head"><h3>كل العملاء المسجلين</h3></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>الاسم</th><th>البريد الإلكتروني</th><th>الهاتف</th><th>تاريخ التسجيل</th><th>الحالة</th><th>تحكم</th></tr></thead>
+            <tbody id="customers-table-body"><tr><td colspan="6" class="empty-mini">جاري التحميل...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="js/admin-shell.js"></script>
+<script src="js/customers.js"></script>
+</body>
+</html>

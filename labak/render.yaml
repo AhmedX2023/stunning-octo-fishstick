@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: labak-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FIRST_ADMIN_EMAIL
+        value: admin@labak.com
+      - key: FIRST_ADMIN_PASSWORD
+        value: Labak2026!
+      - key: ADMIN_WHATSAPP_NUMBER
+        value: 201XXXXXXXXX
+      - key: ENV
+        value: production

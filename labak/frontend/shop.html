@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المتجر — لابك عندنا</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/shop.css">
+</head>
+<body data-page="shop">
+
+<div id="site-header-root"></div>
+
+<main>
+  <div class="shop-header">
+    <div class="container">
+      <span class="eyebrow">المتجر</span>
+      <h1>كل أجهزة اللابتوب في مكان واحد</h1>
+      <p class="text-dim">فلتر حسب البراند، السعر، أو الفئة عشان توصل بسرعة للجهاز المناسب ليك</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="shop-layout">
+      <!-- Filters -->
+      <aside class="filters-panel">
+        <div class="filter-group">
+          <h4>بحث</h4>
+          <div class="search-box" style="max-width:none">
+            <input type="text" id="search-input" placeholder="دوّر باسم الجهاز...">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>الفئة</h4>
+          <div class="filter-chip-list" id="category-filters"></div>
+        </div>
+
+        <div class="filter-group">
+          <h4>البراند</h4>
+          <div class="filter-chip-list" id="brand-filters"></div>
+        </div>
+
+        <div class="filter-group">
+          <h4>نطاق السعر (ج.م)</h4>
+          <div class="price-inputs">
+            <input type="number" id="min-price" placeholder="من" min="0">
+            <span class="text-faint">—</span>
+            <input type="number" id="max-price" placeholder="إلى" min="0">
+          </div>
+        </div>
+
+        <button class="btn btn-ghost btn-block btn-sm" id="clear-filters-btn">مسح الفلاتر</button>
+      </aside>
+
+      <!-- Results -->
+      <div>
+        <div class="toolbar">
+          <span class="results-count" id="results-count" style="margin:0">جاري التحميل...</span>
+          <select class="sort-select" id="sort-select">
+            <option value="newest">الأحدث</option>
+            <option value="price_asc">السعر: من الأقل للأعلى</option>
+            <option value="price_desc">السعر: من الأعلى للأقل</option>
+            <option value="rating">الأعلى تقييماً</option>
+          </select>
+        </div>
+
+        <div class="product-grid" id="shop-grid">
+          <div class="skel skeleton-card"></div>
+          <div class="skel skeleton-card"></div>
+          <div class="skel skeleton-card"></div>
+          <div class="skel skeleton-card"></div>
+        </div>
+
+        <div class="empty-state hidden" id="empty-state">
+          <div class="icon">🔍</div>
+          <h3 style="margin-bottom:8px">مفيش نتائج مطابقة</h3>
+          <p class="text-faint">جرب تغيير الفلاتر أو امسحها وابدأ من جديد</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer-root"></div>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/product-card.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة الطلبات — لابك عندنا</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-admin-page="orders" data-page-title="إدارة الطلبات">
+
+<div class="admin-shell">
+  <div id="admin-sidebar-root"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="admin-mobile-toggle btn btn-secondary btn-sm" id="admin-mobile-toggle">☰</button>
+        <h1 id="admin-topbar-title"></h1>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>كل الطلبات</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" id="status-filter-chips"></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>رقم الطلب</th><th>العميل</th><th>الهاتف / واتساب</th><th>الإجمالي</th><th>الحالة</th><th>التاريخ</th><th>تحكم</th>
+              </tr>
+            </thead>
+            <tbody id="orders-table-body">
+              <tr><td colspan="7" class="empty-mini">جاري التحميل...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ===== Modal: تفاصيل الطلب ===== -->
+<div class="modal-overlay" id="order-detail-modal">
+  <div class="modal-box" style="max-width:520px">
+    <div class="modal-header">
+      <h3 id="order-detail-title">تفاصيل الطلب</h3>
+      <button class="modal-close-btn" data-close-modal="order-detail-modal">✕</button>
+    </div>
+    <div class="modal-body" id="order-detail-body"></div>
+    <div class="modal-footer">
+      <select id="order-status-select" style="background:var(--bg-surface-2);border:1.5px solid var(--line);border-radius:10px;padding:9px 14px;color:var(--ink);flex:1">
+        <option value="pending">في الانتظار</option>
+        <option value="confirmed">تم التأكيد</option>
+        <option value="processing">جاري التجهيز</option>
+        <option value="shipped">تم الشحن</option>
+        <option value="delivered">تم التسليم</option>
+        <option value="cancelled">ملغي</option>
+      </select>
+      <button class="btn btn-primary" id="update-order-status-btn">تحديث الحالة</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="js/admin-shell.js"></script>
+<script src="js/orders.js"></script>
+</body>
+</html>

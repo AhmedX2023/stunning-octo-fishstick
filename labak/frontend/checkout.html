@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إتمام الطلب — لابك عندنا</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body data-page="">
+
+<div id="site-header-root"></div>
+
+<main>
+  <div class="container" id="checkout-root">
+    <!-- ===== حالة السلة فيها منتجات ===== -->
+    <div id="checkout-active">
+      <div style="padding-top:44px">
+        <span class="eyebrow">خطوة أخيرة</span>
+        <h1 style="font-size:clamp(26px,3.4vw,36px);margin:10px 0 0">إتمام الطلب</h1>
+      </div>
+
+      <div class="checkout-layout">
+        <div class="checkout-form-card">
+          <h2>بيانات التواصل والتوصيل</h2>
+          <p class="sub">هنحتاج بياناتك عشان نأكد طلبك ونوصله لحد عندك</p>
+
+          <div class="whatsapp-note">
+            <span class="ic">💬</span>
+            <span>بعد تأكيد الطلب، هيتفتح واتساب تلقائي عشان نأكد تفاصيل طلبك معاك مباشرة.</span>
+          </div>
+
+          <form id="checkout-form" novalidate>
+            <div class="field" id="field-customer_name">
+              <label for="customer_name">الاسم الكامل</label>
+              <input type="text" id="customer_name" required placeholder="مثال: محمد أحمد">
+              <div class="field-error"></div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="field" id="field-phone">
+                <label for="phone">رقم الهاتف</label>
+                <input type="tel" id="phone" required placeholder="01XXXXXXXXX">
+                <div class="field-error"></div>
+              </div>
+              <div class="field" id="field-whatsapp">
+                <label for="whatsapp">رقم الواتساب</label>
+                <input type="tel" id="whatsapp" required placeholder="01XXXXXXXXX">
+                <div class="field-error"></div>
+              </div>
+            </div>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-dim);margin:-10px 0 18px;cursor:pointer">
+              <input type="checkbox" id="same-as-phone" style="width:auto"> نفس رقم الهاتف
+            </label>
+
+            <div class="field" id="field-city">
+              <label for="city">المدينة / المحافظة</label>
+              <input type="text" id="city" required placeholder="مثال: القاهرة">
+              <div class="field-error"></div>
+            </div>
+
+            <div class="field" id="field-address">
+              <label for="address">العنوان بالتفصيل</label>
+              <textarea id="address" rows="3" required placeholder="اسم الشارع، رقم العمارة، علامة مميزة..."></textarea>
+              <div class="field-error"></div>
+            </div>
+
+            <div class="field">
+              <label for="notes">ملاحظات إضافية (اختياري)</label>
+              <textarea id="notes" rows="2" placeholder="أي تفاصيل تحب تضيفها..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="checkout-submit-btn">
+              تأكيد الطلب والتواصل عبر واتساب
+            </button>
+          </form>
+        </div>
+
+        <div class="summary-card">
+          <h3>ملخص طلبك</h3>
+          <div id="summary-items"></div>
+          <div class="summary-totals">
+            <div class="summary-row"><span>عدد القطع</span><span id="summary-count" class="font-num"></span></div>
+            <div class="summary-row grand"><span>الإجمالي</span><span id="summary-total" class="price"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== حالة السلة فاضية ===== -->
+    <div class="empty-state hidden" id="checkout-empty" style="margin:60px 0">
+      <div class="icon">🛒</div>
+      <h3 style="margin-bottom:8px">السلة فاضية</h3>
+      <p class="text-faint" style="margin-bottom:24px">ضيف منتجات للسلة الأول عشان تكمل الطلب</p>
+      <a href="shop.html" class="btn btn-primary">روح للمتجر</a>
+    </div>
+
+    <!-- ===== حالة نجاح الطلب ===== -->
+    <div class="order-success hidden" id="checkout-success">
+      <div class="check-circle">✓</div>
+      <h1>تم تسجيل طلبك بنجاح!</h1>
+      <p class="text-dim">احتفظ برقم طلبك عشان تقدر تتابع حالته في أي وقت</p>
+      <div class="order-num-display font-num" id="success-order-num"></div>
+      <div class="order-success-actions">
+        <a href="#" id="success-whatsapp-link" target="_blank" rel="noopener" class="btn btn-amber">تواصل واتساب الآن</a>
+        <a href="shop.html" class="btn btn-secondary">متابعة التسوق</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer-root"></div>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

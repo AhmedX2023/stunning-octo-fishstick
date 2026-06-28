@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سجل الأمان — لابك عندنا</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-admin-page="security" data-page-title="سجل الأمان">
+
+<div class="admin-shell">
+  <div id="admin-sidebar-root"></div>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="admin-mobile-toggle btn btn-secondary btn-sm" id="admin-mobile-toggle">☰</button>
+        <h1 id="admin-topbar-title"></h1>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div class="panel" style="background:linear-gradient(95deg, rgba(124,58,237,0.12), rgba(240,51,155,0.08));border-color:rgba(124,58,237,0.3)">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="font-size:28px">🔒</span>
+          <div>
+            <div style="font-weight:800;margin-bottom:4px">سجل الأحداث الأمنية</div>
+            <div style="font-size:13px;color:var(--ink-dim)">يعرض محاولات تسجيل الدخول الناجحة والفاشلة لمساعدتك في رصد أي نشاط مشبوه على المنصة</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>سجل النشاط</h3>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-primary btn-sm" id="filter-all-btn">الكل</button>
+            <button class="btn btn-secondary btn-sm" id="filter-failures-btn">المحاولات الفاشلة فقط</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>الحدث</th><th>البريد الإلكتروني</th><th>IP</th><th>الحالة</th><th>التاريخ والوقت</th></tr></thead>
+            <tbody id="security-table-body"><tr><td colspan="5" class="empty-mini">جاري التحميل...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="js/admin-shell.js"></script>
+<script src="js/security.js"></script>
+</body>
+</html>

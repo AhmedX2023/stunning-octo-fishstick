@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تفاصيل المنتج — لابك عندنا</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/product-detail.css">
+</head>
+<body data-page="shop">
+
+<div id="site-header-root"></div>
+
+<main>
+  <div class="container product-detail" id="product-detail-root">
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a> / <a href="shop.html">المتجر</a> / <span id="breadcrumb-name">جاري التحميل...</span>
+    </div>
+    <div class="detail-grid">
+      <div class="skel" style="aspect-ratio:1/1;border-radius:28px"></div>
+      <div>
+        <div class="skel" style="height:20px;width:120px;margin-bottom:14px"></div>
+        <div class="skel" style="height:40px;width:80%;margin-bottom:20px"></div>
+        <div class="skel" style="height:60px;width:50%;margin-bottom:20px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container related-section hidden" id="related-section">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">قد يعجبك أيضاً</span>
+        <h2 class="section-title">منتجات مشابهة</h2>
+      </div>
+    </div>
+    <div class="product-grid" id="related-grid"></div>
+  </div>
+</main>
+
+<div id="site-footer-root"></div>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/product-card.js"></script>
+<script src="js/product-detail.js"></script>
+</body>
+</html>

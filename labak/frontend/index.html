@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لابك عندنا — اللابتوب اللي بتدور عليه، موجود عندنا</title>
+<meta name="description" content="لابك عندنا: متجر متخصص في بيع أجهزة اللابتوب والكمبيوتر بأسعار منافسة وضمان حقيقي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body data-page="home">
+
+<div id="site-header-root"></div>
+
+<main>
+  <!-- ===================== Hero ===================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">أكتر من 40 موديل متاح دلوقتي</span>
+        <h1 class="hero-title">
+          اللابتوب اللي بتدوّر عليه<br>
+          <span class="fill-grad">موجود عندنا.</span>
+        </h1>
+        <p class="hero-sub">من جهاز الألعاب اللي مايهنجش، لحد الجهاز اللي يخدمك في الشغل والمذاكرة. اختار من تشكيلة واسعة، واطلب بسهولة على واتساب.</p>
+        <div class="hero-cta-row">
+          <a href="shop.html" class="btn btn-primary">تصفح المتجر</a>
+          <a href="shop.html?featured=1" class="btn btn-secondary">شوف العروض المميزة</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num font-num" id="stat-products">—</div>
+            <div class="hero-stat-label">موديل متاح</div>
+          </div>
+          <div>
+            <div class="hero-stat-num font-num">٤.٧</div>
+            <div class="hero-stat-label">تقييم العملاء</div>
+          </div>
+          <div>
+            <div class="hero-stat-num font-num">24س</div>
+            <div class="hero-stat-label">رد سريع على واتساب</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <div class="hero-badge-float">🔥 خصومات تصل 15%</div>
+        <div class="hero-laptop-card">
+          <img id="hero-laptop-img" src="" alt="جهاز لابتوب مميز">
+          <div class="hero-spec-strip">
+            <div><span class="v" id="hero-spec-cpu">—</span><span class="l">المعالج</span></div>
+            <div><span class="v" id="hero-spec-ram">—</span><span class="l">الرام</span></div>
+            <div><span class="v" id="hero-spec-price">—</span><span class="l">السعر</span></div>
+          </div>
+        </div>
+        <div class="hero-badge-card2">
+          <span class="dot"></span>
+          <div>
+            <div style="font-weight:800;font-size:13px">متوفر للطلب فوراً</div>
+            <div style="font-size:11px;color:var(--ink-faint)">تواصل واتساب مباشر</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Brand strip ===================== -->
+  <div class="brand-strip">
+    <div class="brand-strip-track" id="brand-track"></div>
+  </div>
+
+  <!-- ===================== Categories ===================== -->
+  <section class="section" style="padding-bottom:0">
+    <div class="container">
+      <span class="eyebrow">تصفح حسب الفئة</span>
+      <h2 class="section-title" style="margin-bottom:30px">دوّر بالظبط على اللي يناسبك</h2>
+      <div class="category-row" id="category-row"></div>
+    </div>
+  </section>
+
+  <!-- ===================== Featured products ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">الأكثر طلباً</span>
+          <h2 class="section-title">منتجات مميزة لينا</h2>
+        </div>
+        <a href="shop.html" class="btn btn-ghost">عرض الكل ←</a>
+      </div>
+      <div class="product-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== Why us ===================== -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <span class="eyebrow">ليه لابك عندنا</span>
+      <h2 class="section-title" style="margin-bottom:36px">إحنا مش بس بنبيع لابتوب</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(124,58,237,0.18)">✅</div>
+          <h3>ضمان حقيقي</h3>
+          <p>كل جهاز بيوصلك بضمان موثق من الوكيل أو المتجر، من غير لف ودوران.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(240,51,155,0.18)">💬</div>
+          <h3>طلب عبر واتساب</h3>
+          <p>تأكيد طلبك بيوصلنا فوراً على واتساب، وبنتواصل معاك لتأكيد التفاصيل.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(251,192,45,0.18)">⚡</div>
+          <h3>تجهيز سريع</h3>
+          <p>طلبك بيتجهز ويتشحن بأسرع وقت ممكن لحد باب البيت.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(34,211,238,0.18)">🔒</div>
+          <h3>بياناتك بالأمان</h3>
+          <p>نظامنا مبني بأعلى معايير الحماية، بياناتك محفوظة ومشفّرة بالكامل.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="container" style="margin-bottom:90px">
+    <div class="cta-banner">
+      <div>
+        <h2>محتاج استشارة قبل ما تشتري؟</h2>
+        <p>كلمنا على واتساب وهنساعدك تختار الجهاز المناسب لاستخدامك وميزانيتك.</p>
+      </div>
+      <a href="https://wa.me/201000000000" target="_blank" rel="noopener" class="btn btn-amber">تواصل واتساب الآن</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer-root"></div>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/product-card.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

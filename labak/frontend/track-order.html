@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تتبع طلبك — لابك عندنا</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body data-page="track">
+
+<div id="site-header-root"></div>
+
+<main class="auth-wrap" style="align-items:flex-start;padding-top:70px">
+  <div class="auth-card" style="max-width:520px">
+    <div class="auth-icon">📦</div>
+    <h1>تتبع طلبك</h1>
+    <p class="sub">اكتب رقم الطلب اللي وصلك بعد ما طلبت، وهنوريك حالته فوراً</p>
+
+    <form id="track-form" novalidate>
+      <div class="field" id="field-order-number">
+        <label for="order-number">رقم الطلب</label>
+        <input type="text" id="order-number" placeholder="مثال: LB-260621-1234" required>
+        <div class="field-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="track-submit-btn">تتبع الطلب</button>
+    </form>
+
+    <div id="track-result" style="margin-top:30px"></div>
+  </div>
+</main>
+
+<div id="site-footer-root"></div>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/track-order.js"></script>
+</body>
+</html>
