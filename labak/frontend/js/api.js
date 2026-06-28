@@ -7,7 +7,7 @@ const API_BASE = (() => {
   if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     return "http://localhost:8000";
   }
-  return window.LABAK_API_BASE || "http://localhost:8000";
+  return window.LABAK_API_BASE || "https://stunning-octo-fishstick-nhni.onrender.com";
 })();
 
 const TOKEN_KEY = "labak_access_token";
